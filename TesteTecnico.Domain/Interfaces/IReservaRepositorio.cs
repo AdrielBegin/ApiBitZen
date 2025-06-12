@@ -4,11 +4,13 @@ namespace TesteTecnico.Domain.Interfaces
 {
     public interface IReservaRepositorio
     {
-        Reserva ObterPorId(int id);
+        Task<Reserva> ObterPorId(Guid id);
+        Task<List<Reserva>> ObterReservasPorSalaEData(int salaId, DateTime data);
         IEnumerable<Reserva> ObterPorUsuario(int usuarioId);
         IEnumerable<Reserva> ObterPorSala(int salaId);
         void Adicionar(Reserva reserva);
-        void Atualizar(Reserva reserva);
-        void Remover(bool excluido);
+        Task<Reserva> Atualizar(Reserva reserva);
+        Task AdicionarAsync(Reserva reserva);
+        void Remover(int id);
     }
 }

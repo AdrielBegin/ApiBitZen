@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TesteTecnico.Application.Salas.DTOs
+﻿namespace TesteTecnico.Application.Salas.DTOs
 {
-    internal class SalaDTO
+    public class SalaDTO
     {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public int CapacidadeMaxima { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataExclusao { get; set; } 
     }
 }

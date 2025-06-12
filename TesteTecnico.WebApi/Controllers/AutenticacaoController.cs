@@ -4,6 +4,8 @@ using TesteTecnico.Application.Autenticacao.Comandos.Login;
 
 namespace TesteTecnico.WebApi.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class AutenticacaoController : Controller
     {
         private readonly IMediator _mediator;

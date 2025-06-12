@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TesteTecnico.Domain.Entidades
+﻿namespace TesteTecnico.Domain.Entidades
 {
     public class Sala
     {
@@ -12,7 +6,7 @@ namespace TesteTecnico.Domain.Entidades
         public string Nome { get; set; }
         public int CapacidadeMaxima { get; set; }
         public DateTime DataCriacao { get; private set; } = DateTime.UtcNow;
-        public DateTime DataExclusao { get; private set; }
+        public DateTime? DataExclusao { get; private set; }
         public ICollection<Reserva> Reservas { get; set; }
         public Sala(){}
         public Sala(string nome, int capacidadeMaxima, DateTime dataCriacao, DateTime dataExclusao)

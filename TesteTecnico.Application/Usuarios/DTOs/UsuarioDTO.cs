@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TesteTecnico.Application.Usuarios.DTOs
+﻿namespace TesteTecnico.Application.Usuarios.DTOs
 {
     public class UsuarioDTO
     {

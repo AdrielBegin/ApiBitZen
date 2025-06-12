@@ -1,4 +1,5 @@
-﻿using TesteTecnico.Domain.Entidades;
+﻿using Microsoft.EntityFrameworkCore;
+using TesteTecnico.Domain.Entidades;
 using TesteTecnico.Domain.Interfaces;
 using TesteTecnico.Persistence.Contexto;
 
@@ -15,11 +16,6 @@ namespace TesteTecnico.Persistence.Repositorio
 
         public IEnumerable<Usuario> ObterTodos() => _context.Usuarios.ToList();
 
-        public void Adicionar(Usuario usuario)
-        {
-            _context.Usuarios.Add(usuario);
-            _context.SaveChanges();
-        }
 
         public Usuario ObterPorId(int id)
         {
@@ -31,14 +27,22 @@ namespace TesteTecnico.Persistence.Repositorio
             throw new NotImplementedException();
         }
 
-        public Task<Usuario> ObterPorEmailAsync(string email)
+        public async Task<Usuario> ObterPorEmailAsync(string email)
         {
-            throw new NotImplementedException();
+            return await _context.Usuarios.FirstOrDefaultAsync(u => u.Email.Endereco == email);
         }
 
         public void Remover(bool excluido)
         {
             throw new NotImplementedException();
+        }
+
+        Task IUsuarioRepositorio.Adicionar(Usuario usuario)
+        {            
+            _context.Usuarios.Add(usuario);
+            _context.SaveChanges();
+         
+            return Task.CompletedTask;
         }
     }
 }

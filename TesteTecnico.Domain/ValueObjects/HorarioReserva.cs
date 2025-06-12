@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TesteTecnico.Domain.Entidades;
-using TesteTecnico.Domain.Excecoes;
+﻿using TesteTecnico.Domain.Excecoes;
 
 namespace TesteTecnico.Domain.ValueObjects
 {
@@ -22,6 +16,10 @@ namespace TesteTecnico.Domain.ValueObjects
 
             Inicio = inicio;
             Fim = fim;
+        }
+        public bool ConflitaCom(HorarioReserva outro)
+        {
+            return Inicio < outro.Fim && Fim > outro.Inicio;
         }
     }
 }

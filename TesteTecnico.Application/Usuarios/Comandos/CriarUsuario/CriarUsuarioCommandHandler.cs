@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using TesteTecnico.Application.Autenticacao.Common.Interfaces;
 using TesteTecnico.Application.Usuarios.DTOs;
 using TesteTecnico.Domain.Entidades;
 using TesteTecnico.Domain.Interfaces;
@@ -11,30 +12,33 @@ namespace TesteTecnico.Application.Usuarios.Comandos.CriarUsuario
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
         private readonly IMapper _mapper;
-
-        public CriarUsuarioCommandHandler(IUsuarioRepositorio usuarioRepositorio, IMapper mapper)
+        private readonly IAutenticacaoService _autenticacaoService;      
+        public CriarUsuarioCommandHandler(IUsuarioRepositorio usuarioRepositorio, IMapper mapper, IAutenticacaoService autenticacaoService)
         {
             _usuarioRepositorio = usuarioRepositorio;
             _mapper = mapper;
+            _autenticacaoService = autenticacaoService;
         }
 
         public async Task<UsuarioDTO> Handle(CriarUsuarioCommand request, CancellationToken cancellationToken)
         {
-            var email = new Email(request.Usuario.Email);
-            
-            
-            
+            var dto = request.Usuario;
+                        
+            _autenticacaoService.CriarSenhaHash(dto.Senha, out var senhaHash, out var senhaSalt);
+
+            var email = new Email(dto.Email); 
+
             var usuario = new Usuario(
-                id: 0, 
-                nome: request.Usuario.Nome,
+                id: 0,
+                nome: dto.Nome,
                 email: email,
-                senhaHash: null,
-                senhaSalt: null,
+                senhaHash: senhaHash,
+                senhaSalt: senhaSalt,
                 excluido: false,
                 dataCriacao: DateTime.UtcNow
-                );
+            );
 
-            _usuarioRepositorio.Adicionar(usuario);
+            await _usuarioRepositorio.Adicionar(usuario); 
 
             return _mapper.Map<UsuarioDTO>(usuario);
         }

@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MediatR;
+using TesteTecnico.Application.Salas.DTOs;
 
 namespace TesteTecnico.Application.Salas.Comandos.CriarSala
 {
-    internal class CriarSalaCommand
+    public class CriarSalaCommand : IRequest<SalaDTO>
     {
+        public string Nome { get; set; }
+        public int CapacidadeMaxima { get; set; }
+        public DateTime DataCriacao { get; set; }
+        public DateTime? DataExclusao { get; set; }
     }
 }

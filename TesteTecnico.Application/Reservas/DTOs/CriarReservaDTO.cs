@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TesteTecnico.Application.Reservas.DTOs
+﻿namespace TesteTecnico.Application.Reservas.DTOs
 {
-    internal class CriarReservaDTO
+    public class CriarReservaDTO
     {
+        public int SalaId { get; set; }
+        public int UsuarioId { get; set; }
+        public DateTime Data { get; set; }
+        public DateTime HoraInicio { get; set; }
+        public DateTime HoraFim { get; set; }
     }
 }

@@ -17,5 +17,26 @@ namespace TesteTecnico.Persistence.Repositorio
             _context.Salas.Add(sala);
             _context.SaveChanges();
         }
+
+        public Sala ObterPorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Atualizar(Sala sala)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Remover(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task AdicionarAsync(Sala sala)
+        {
+            _context.Salas.Add(sala); 
+            await _context.SaveChangesAsync();
+        }
     }
 }

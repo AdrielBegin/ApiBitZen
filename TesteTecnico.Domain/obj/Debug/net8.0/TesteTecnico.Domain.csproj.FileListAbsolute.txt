@@ -9,3 +9,15 @@ C:\Users\Adriel\source\repos\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\ne
 C:\Users\Adriel\source\repos\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\refint\TesteTecnico.Domain.dll
 C:\Users\Adriel\source\repos\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.pdb
 C:\Users\Adriel\source\repos\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\ref\TesteTecnico.Domain.dll
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\bin\Debug\net8.0\TesteTecnico.Domain.deps.json
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\bin\Debug\net8.0\TesteTecnico.Domain.dll
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\bin\Debug\net8.0\TesteTecnico.Domain.pdb
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.AssemblyInfoInputs.cache
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.AssemblyInfo.cs
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.csproj.CoreCompileInputs.cache
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.sourcelink.json
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.dll
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\refint\TesteTecnico.Domain.dll
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\TesteTecnico.Domain.pdb
+C:\TesteTecnicoBitZen\TesteTecnicoBitZen\TesteTecnico.Domain\obj\Debug\net8.0\ref\TesteTecnico.Domain.dll

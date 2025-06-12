@@ -4,17 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TesteTecnico.Domain.Enums;
+using TesteTecnico.Domain.Excecoes;
 
 namespace TesteTecnico.Domain.Entidades
 {
     public class Reserva
     {
-        public int Id { get; private set; }
+        public Guid Id { get; private set; }
         public int SalaId { get; private set; }
         public int UsuarioId { get; private set; }
         public DateTime DataInicio { get; private set; }
         public DateTime DataFim { get; private set; }
-        public StatusReserva Status { get; private set; } = StatusReserva.Ativa;
+        public StatusReserva Status { get;  set; } = StatusReserva.Ativa;
         public DateTime DataCriacao { get; private set; } = DateTime.UtcNow;     
         public virtual Sala Sala { get; private set; }
         public virtual Usuario Usuario { get; private set; }
@@ -39,6 +40,11 @@ namespace TesteTecnico.Domain.Entidades
                 throw new InvalidOperationException("Reserva já está cancelada");
 
             Status = StatusReserva.Cancelada;
+        }
+        public void ValidarHorario()
+        {
+            if (DataInicio >= DataFim)
+                throw new ValidacaoException("Hora de início deve ser anterior à hora de fim.");
         }
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TesteTecnico.Domain.Entidades;
+﻿using TesteTecnico.Domain.Entidades;
 
 namespace TesteTecnico.Application.Autenticacao.Common.Interfaces
 {

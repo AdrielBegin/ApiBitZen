@@ -1,4 +1,5 @@
-﻿using Microsoft.IdentityModel.Tokens;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -10,7 +11,12 @@ namespace TesteTecnico.Persistence.Services
 {
     public class AutenticacaoService : IAutenticacaoService
     {
-        private readonly string _chaveSecreta = "sua-chave-secreta-muito-grande-aqui"; // Coloque no appsettings
+        private readonly IConfiguration _configuration;
+
+        public AutenticacaoService(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
 
         public bool VerificarSenha(string senha, byte[] senhaHash, byte[] senhaSalt)
         {
@@ -33,7 +39,7 @@ namespace TesteTecnico.Persistence.Services
         public string GerarToken(Usuario usuario)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_chaveSecreta);
+            var key = Encoding.ASCII.GetBytes(_configuration["Jwt:Key"]);
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[] {
@@ -42,6 +48,8 @@ namespace TesteTecnico.Persistence.Services
                     new Claim(ClaimTypes.Name, usuario.Nome.ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(2),
+                Issuer = _configuration["Jwt:Issuer"],       
+                Audience = _configuration["Jwt:Audience"],   
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key),
                     SecurityAlgorithms.HmacSha256Signature)
             };

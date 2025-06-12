@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentValidation;
 
 namespace TesteTecnico.Application.Salas.Comandos.CriarSala
 {
-    internal class CriarSalaCommandValidator
+    public class CriarSalaCommandValidator : AbstractValidator<CriarSalaCommand>
     {
+        public CriarSalaCommandValidator()
+        {
+            RuleFor(x => x.Nome).NotEmpty().MaximumLength(100);
+            RuleFor(x => x.CapacidadeMaxima).GreaterThan(0);
+        }
     }
 }
